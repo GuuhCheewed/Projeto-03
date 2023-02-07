@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html id="a">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Ghast 2</title>
+    <script src="./js/js.js"></script>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="navbar-container">
+            <h1 class="logo">GHAST</h1>
+            <ul>
+                <li>
+                    <p>Categorias</p>
+                </li>
+                <li>
+                    <p>Compras</p>
+                </li>
+                <li>
+                    <p>Favoritos</p>
+                </li>
+                <li>
+                    <p>Contato</p>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <header id="showcase">
+        <div id="showcase-container">
+        </div>
+    </header>
+    <section id="menu2">
+        <div id="imagens">
+            <img src="./img/imagem-corporativa.webp" alt="Imagem 1" style="width: 100%; height: 10%;">
+            <img src="./img/artigo_01102017.jpg" alt="Imagem 2" style="width: 100%; height: 10%;">
+        </div>
+        <div id="prev"></div>
+        <div id="next"></div>
+        <script>
+            setInterval(() => {
+                imagens[atual].style.display = "none";
+                atual = (atual + 1) % imagens.length;
+                imagens[atual].style.display = "block";
+            }, 10000);
+
+            const imagens = document.querySelectorAll("#imagens img");
+            const prevBtn = document.querySelector("#prev");
+            const nextBtn = document.querySelector("#next");
+
+            let atual = 0;
+            prevBtn.addEventListener("click", () => {
+                imagens[atual].style.display = "none";
+                atual = (atual - 1 + imagens.length) % imagens.length;
+                imagens[atual].style.display = "block";
+            });
+
+            nextBtn.addEventListener("click", () => {
+                imagens[atual].style.display = "none";
+                atual = (atual + 1) % imagens.length;
+                imagens[atual].style.display = "block";
+            });
+        </script>
+    </section>
+
+</html>
